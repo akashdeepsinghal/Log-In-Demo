@@ -12,6 +12,7 @@ import CoreData
 class ViewController: UIViewController {
     @IBOutlet var textField: UITextField!
     @IBOutlet var label: UILabel!
+    @IBOutlet var logOutButton: UIButton!
 
     @IBOutlet var logInButton: UIButton!
     @IBAction func LogIn(_ sender: Any) {
@@ -27,10 +28,17 @@ class ViewController: UIViewController {
             textField.alpha = 0
             logInButton.alpha = 0
             label.alpha = 1
+            logOutButton.alpha = 1
             label.text = "Hi there " + textField.text! + "!"
         } catch {
             print("Failed to save")
         }
+    }
+    @IBAction func LogOut(_ sender: Any) {
+        textField.alpha = 1
+        logInButton.alpha = 1
+        label.alpha = 0
+        logOutButton.alpha = 0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +57,7 @@ class ViewController: UIViewController {
                 if let username = result.value(forKey: "name") as? String {
                     textField.alpha = 0
                     logInButton.alpha = 0
+                    logOutButton.alpha = 1
                     label.alpha = 1
                     label.text = "Hi there " + username + "!"
                 }

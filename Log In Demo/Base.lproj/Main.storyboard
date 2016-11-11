@@ -43,12 +43,21 @@
                                     <action selector="LogIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ewO-DU-7as"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk8-m9-Yb9">
+                                <rect key="frame" x="160" y="318" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="LogOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yaH-Dj-cD3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="label" destination="UaO-ea-Sld" id="cJv-1K-mlW"/>
                         <outlet property="logInButton" destination="6dH-QR-zhL" id="hE7-Bc-Fs1"/>
+                        <outlet property="logOutButton" destination="Hk8-m9-Yb9" id="4nd-WS-eHJ"/>
                         <outlet property="textField" destination="6It-6T-PPI" id="iKm-Zl-bo3"/>
                     </connections>
                 </viewController>

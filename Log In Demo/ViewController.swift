@@ -15,6 +15,28 @@ class ViewController: UIViewController {
     @IBOutlet var logOutButton: UIButton!
 
     @IBOutlet var logInButton: UIButton!
+    @IBAction func LogOut(_ sender: Any) {
+        textField.alpha = 1
+        logInButton.alpha = 1
+        label.alpha = 0
+        logOutButton.alpha = 0
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try context.fetch(request)
+            
+            for result in results as! [NSManagedObject] {
+                context.delete(result)
+            }
+        } catch {
+            print("Could not fetch results")
+        }
+        
+    }
     @IBAction func LogIn(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -33,12 +55,6 @@ class ViewController: UIViewController {
         } catch {
             print("Failed to save")
         }
-    }
-    @IBAction func LogOut(_ sender: Any) {
-        textField.alpha = 1
-        logInButton.alpha = 1
-        label.alpha = 0
-        logOutButton.alpha = 0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
